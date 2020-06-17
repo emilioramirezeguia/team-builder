@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuid } from "uuid";
+import Card from "./components/Card.jsx";
 import './App.css';
 
 const originalTeam = [{
@@ -11,13 +12,12 @@ const originalTeam = [{
 
 function App() {
   const [team, setTeam] = useState(originalTeam);
-  debugger
   return (
     <div className="App">
       <header className="App-header">
         {
           team.map(member => {
-            return member.name
+            return <Card key={member.id} member={member} />
           })
         }
       </header>
